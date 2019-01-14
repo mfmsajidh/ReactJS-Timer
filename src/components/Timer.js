@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
+import Typography from "@material-ui/core/Typography";
 
 export default class Timer extends Component {
     render(){
         return (
             <div>
-                <h1>
+                <Typography variant="h2" gutterBottom>
                     {this.props.minutes}:{this.props.seconds}
-                </h1>
+                </Typography>
             </div>
         )
     }

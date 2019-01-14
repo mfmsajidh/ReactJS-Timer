@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import TimerInput from "./components/TimerInput";
 import Timer from "./components/Timer";
 import StartButton from './components/StartButton'
+import ClearButton from "./components/ClearButton";
 
 export default class Controller extends Component {
 
@@ -17,6 +18,7 @@ export default class Controller extends Component {
         this.handleChange=this.handleChange.bind(this);
         this.startCountdown=this.startCountdown.bind(this);
         this.tick=this.tick.bind(this);
+        this.clearValue=this.clearValue.bind(this)
     }
 
     handleChange(event) {
@@ -63,6 +65,12 @@ export default class Controller extends Component {
 
     }
 
+    clearValue(){
+        this.setState({
+            minutes: ''
+        })
+    }
+
     render() {
 
         const clicked = this.state.isClicked;
@@ -80,6 +88,7 @@ export default class Controller extends Component {
                     <TimerInput minutes={this.state.minutes} handleChange={this.handleChange}/>
                     <Timer minutes={this.state.minutes} seconds={this.state.seconds}/>
                     <StartButton startCountdown={this.startCountdown} minutes={this.state.minutes}/>
+                    <ClearButton clearValue={this.clearValue} minutes={this.state.minutes}/>
                 </div>
             )
         }
