@@ -5,7 +5,7 @@ export default class TimerInput extends Component {
         return (
             <div style={{marginLeft:100}}>
                 <h3>Keep calm and input your desired time</h3>
-                <input type="number" value={this.props.value} onChange={this.props.handleChange} required/>
+                <input type="number" value={this.props.minutes} onChange={this.props.handleChange} required/>
             </div>
         )
     }

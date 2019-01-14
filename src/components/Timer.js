@@ -5,7 +5,7 @@ export default class TimerUI extends Component {
         return (
             <div>
                 <h1 style={{fontSize:100, marginLeft:100}}>
-                    {this.props.value}:{this.props.seconds}
+                    {this.props.minutes}:{this.props.seconds}
                 </h1>
             </div>
         )

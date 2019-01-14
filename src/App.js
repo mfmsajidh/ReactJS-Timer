@@ -10,7 +10,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             seconds : '00',
-            value : '',
+            minutes : '',
             isClicked : false
         };
 
@@ -21,7 +21,7 @@ export default class App extends Component {
 
     handleChange(event) {
         this.setState({
-            value: event.target.value
+            minutes: event.target.value
         })
     }
 
@@ -30,7 +30,7 @@ export default class App extends Component {
         let sec = this.secondsRemaining - (min * 60);
 
         this.setState({
-            value: min,
+            minutes: min,
             seconds: sec
         })
 
@@ -42,7 +42,7 @@ export default class App extends Component {
 
         if (min<10) {
             this.setState({
-                value: "0" + min
+                minutes: "0" + min
             })
         }
 
@@ -55,7 +55,7 @@ export default class App extends Component {
 
     startCountdown(){
         this.intervalHandle = setInterval(this.tick,1000);
-        let time = this.state.value;
+        let time = this.state.minutes;
         this.secondsRemaining = time * 60;
         this.setState({
             isClicked: true
@@ -66,19 +66,20 @@ export default class App extends Component {
     render() {
 
         const clicked = this.state.isClicked;
+
         if (clicked) {
             return(
                 <div>
-                    <Timer value={this.state.value} seconds={this.state.seconds}/>
+                    <Timer minutes={this.state.minutes} seconds={this.state.seconds}/>
                 </div>
             )
         }
         else {
             return(
                 <div>
-                    <TimerInput value={this.state.value} handleChange={this.handleChange}/>
-                    <Timer value={this.state.value} seconds={this.state.seconds}/>
-                    <StartButton startCountdown={this.startCountdown} value={this.state.value}/>
+                    <TimerInput minutes={this.state.minutes} handleChange={this.handleChange}/>
+                    <Timer minutes={this.state.minutes} seconds={this.state.seconds}/>
+                    <StartButton startCountdown={this.startCountdown} minutes={this.state.minutes}/>
                 </div>
             )
         }
