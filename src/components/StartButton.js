@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
+import Button from '@material-ui/core/Button'
 
-export default class StartButtonUI extends Component {
+export default class StartButton extends Component {
     render(){
         return(
-            <div style={{marginLeft:130}}>
-                <button disabled={!this.props.minutes} onClick={this.props.startCountdown}>Start</button>
+            <div>
+                <Button variant="outlined" color="primary" disabled={!this.props.minutes} onClick={this.props.startCountdown}>Start</Button>
             </div>
         )
     }
