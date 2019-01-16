@@ -73,7 +73,7 @@ export default class Controller extends Component {
     }
 
     startCountdown(){
-        this.intervalHandle = setInterval(this.tick,100);
+        this.intervalHandle = setInterval(this.tick,100); //Timeout set to 100 milliseconds for easy testing
         if(this.state.minutes){
             let time = parseInt(this.state.minutes);
             if (parseInt(this.state.seconds)) {
