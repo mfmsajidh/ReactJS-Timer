@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 import TimerInput from "./components/TimerInput";
 import Timer from "./components/Timer";
 import StartButton from './components/StartButton'
 import ClearButton from "./components/ClearButton";
+import AlertDialog from "./components/AlertDialog";
 
 export default class Controller extends Component {
 
@@ -13,23 +14,43 @@ export default class Controller extends Component {
             hours: '',
             minutes : '',
             seconds : '',
-            isClicked : false
+            isClicked : false,
+            alertIsOpen: false
         };
 
         this.handleChange=this.handleChange.bind(this);
         this.startCountdown=this.startCountdown.bind(this);
         this.tick=this.tick.bind(this);
         this.clearValue=this.clearValue.bind(this)
+        this.handleAlertClose=this.handleAlertClose.bind(this)
     }
 
+    // ------------ Functions for Countdown ------------
     handleChange(event) {
-        this.setState({
-            minutes: event.target.value
-        })
+        console.log('Event ID:',event.target.id);
+        console.log('Event Value:',event.target.value);
+
+        let eventId = event.target.id;
+        let eventValue = event.target.value;
+
+        if(eventId==="minutes"){
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 != 0 || isNaN(eventValue)) {
+                let hours = Math.floor(eventValue / 60);
+                console.log('Hours:', hours);
+                this.setState({
+                    alertIsOpen: true
+                })
+            }
+            else{
+                this.setState({
+                    minutes: eventValue
+                })
+            }
+        }
     }
 
     startCountdown(){
-        this.intervalHandle = setInterval(this.tick,1000);
+        this.intervalHandle = setInterval(this.tick,100);
         let time = this.state.minutes;
         this.secondsRemaining = time * 60;
         this.setState({
@@ -47,20 +68,24 @@ export default class Controller extends Component {
             seconds: sec
         });
 
-        if (sec<10) {
-            this.setState({
-                seconds: "0" + this.state.seconds
-            })
-        }
-
-        if (min<10) {
-            this.setState({
-                minutes: "0" + min
-            })
-        }
+        // ------------ To be checked later
+        // if (sec<10) {
+        //     this.setState({
+        //         seconds: "0" + this.state.seconds
+        //     })
+        // }
+        //
+        // if (min<10) {
+        //     this.setState({
+        //         minutes: "0" + min
+        //     })
+        // }
 
         if (min===0 && sec===0) {
             clearInterval(this.intervalHandle);
+            this.setState({
+                isClicked: false
+            })
         }
 
         this.secondsRemaining--
@@ -72,11 +97,20 @@ export default class Controller extends Component {
         })
     }
 
+
+    // ------------ Functions for Alert ------------
+
+    handleAlertClose () {
+        this.setState({
+            alertIsOpen: false
+        })
+    }
+
+
+
     render() {
 
-        const clicked = this.state.isClicked;
-
-        if (clicked) {
+        if (this.state.isClicked) {
             return(
                 <div>
                     <Timer minutes={this.state.minutes} seconds={this.state.seconds}/>
@@ -87,9 +121,9 @@ export default class Controller extends Component {
             return(
                 <div>
                     <TimerInput minutes={this.state.minutes} handleChange={this.handleChange}/>
-                    <Timer minutes={this.state.minutes} seconds={this.state.seconds}/>
                     <StartButton startCountdown={this.startCountdown} minutes={this.state.minutes}/>
                     <ClearButton clearValue={this.clearValue} minutes={this.state.minutes}/>
+                    <AlertDialog open={this.state.alertIsOpen} handleAlertClose={this.handleAlertClose}/>
                 </div>
             )
         }
