@@ -7,10 +7,10 @@ export default class Timer extends Component {
         let timer
 
         if (this.props.minutes) {
-            timer = (this.props.minutes+":"+this.props.seconds)
+            timer = (this.props.minutes + " : " + this.props.seconds)
         }
         else {
-            timer = (this.props.seconds)
+            timer = ("Only " + this.props.seconds + " seconds remaining")
         }
         return (
             <div>

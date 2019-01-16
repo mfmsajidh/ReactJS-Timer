@@ -118,6 +118,8 @@ export default class Controller extends Component {
         if (min===0 && sec===0) {
             clearInterval(this.intervalHandle);
             this.setState({
+                minutes: '',
+                seconds: '',
                 isClicked: false
             })
         }
