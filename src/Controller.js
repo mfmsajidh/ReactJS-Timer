@@ -10,8 +10,9 @@ export default class Controller extends Component {
     constructor(props){
         super(props);
         this.state = {
-            seconds : '00',
+            hours: '',
             minutes : '',
+            seconds : '',
             isClicked : false
         };
 
@@ -27,6 +28,16 @@ export default class Controller extends Component {
         })
     }
 
+    startCountdown(){
+        this.intervalHandle = setInterval(this.tick,1000);
+        let time = this.state.minutes;
+        this.secondsRemaining = time * 60;
+        this.setState({
+            isClicked: true
+        })
+
+    }
+
     tick(){
         let min = Math.floor(this.secondsRemaining / 60);
         let sec = this.secondsRemaining - (min * 60);
@@ -34,7 +45,7 @@ export default class Controller extends Component {
         this.setState({
             minutes: min,
             seconds: sec
-        })
+        });
 
         if (sec<10) {
             this.setState({
@@ -53,16 +64,6 @@ export default class Controller extends Component {
         }
 
         this.secondsRemaining--
-    }
-
-    startCountdown(){
-        this.intervalHandle = setInterval(this.tick,1000);
-        let time = this.state.minutes;
-        this.secondsRemaining = time * 60;
-        this.setState({
-            isClicked: true
-        })
-
     }
 
     clearValue(){

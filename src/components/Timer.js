@@ -6,7 +6,7 @@ export default class Timer extends Component {
         return (
             <div>
                 <Typography variant="h2" gutterBottom>
-                    {this.props.minutes}:{this.props.seconds}
+                    {this.props.hours}:{this.props.minutes}:{this.props.seconds}
                 </Typography>
             </div>
         )

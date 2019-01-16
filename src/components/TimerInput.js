@@ -9,8 +9,23 @@ export default class TimerInput extends Component {
                 <Typography variant="h3" gutterBottom>
                     Input your desired time
                 </Typography>
+
                 <TextField
-                id="outlined-number"
+                    id="hours"
+                    label="Hours"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    margin="normal"
+                    variant="outlined"
+                    value={this.props.hours}
+                    onChange={this.props.handleChange}
+                    required
+                />
+
+                <TextField
+                id="minutes"
                 label="Minutes"
                 type="number"
                 InputLabelProps={{
@@ -21,6 +36,20 @@ export default class TimerInput extends Component {
                 value={this.props.minutes}
                 onChange={this.props.handleChange}
                 required
+                />
+
+                <TextField
+                    id="seconds"
+                    label="Seconds"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    margin="normal"
+                    variant="outlined"
+                    value={this.props.seconds}
+                    onChange={this.props.handleChange}
+                    required
                 />
             </div>
 
