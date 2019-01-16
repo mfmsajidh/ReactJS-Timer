@@ -21,7 +21,6 @@ export default class TimerInput extends Component {
                     variant="outlined"
                     value={this.props.hours}
                     onChange={this.props.handleChange}
-                    required
                 />
 
                 <TextField
@@ -35,7 +34,6 @@ export default class TimerInput extends Component {
                 variant="outlined"
                 value={this.props.minutes}
                 onChange={this.props.handleChange}
-                required
                 />
 
                 <TextField
@@ -49,7 +47,6 @@ export default class TimerInput extends Component {
                     variant="outlined"
                     value={this.props.seconds}
                     onChange={this.props.handleChange}
-                    required
                 />
             </div>
 

@@ -21,22 +21,21 @@ export default class Controller extends Component {
         this.handleChange=this.handleChange.bind(this);
         this.startCountdown=this.startCountdown.bind(this);
         this.tick=this.tick.bind(this);
-        this.clearValue=this.clearValue.bind(this)
-        this.handleAlertClose=this.handleAlertClose.bind(this)
+        this.clearValue=this.clearValue.bind(this);
+        this.handleAlertClose=this.handleAlertClose.bind(this);
     }
 
     // ------------ Functions for Countdown ------------
     handleChange(event) {
-        console.log('Event ID:',event.target.id);
-        console.log('Event Value:',event.target.value);
 
         let eventId = event.target.id;
         let eventValue = event.target.value;
 
+        console.log('Event ID:',eventId);
+        console.log('Event Value:',eventValue);
+
         if(eventId==="minutes"){
-            if (eventValue>=60 || eventValue<0 || eventValue % 1 != 0 || isNaN(eventValue)) {
-                let hours = Math.floor(eventValue / 60);
-                console.log('Hours:', hours);
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0 || isNaN(eventValue)) {
                 this.setState({
                     alertIsOpen: true
                 })
@@ -47,12 +46,47 @@ export default class Controller extends Component {
                 })
             }
         }
+        else if (eventId==="seconds") {
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0 || isNaN(eventValue)) {
+                this.setState({
+                    alertIsOpen: true
+                })
+            }
+            else{
+                this.setState({
+                    seconds: eventValue
+                })
+            }
+        }
+        else {
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0 || isNaN(eventValue)) {
+                this.setState({
+                    alertIsOpen: true
+                })
+            }
+            else{
+                this.setState({
+                    hours: eventValue
+                })
+            }
+        }
     }
 
     startCountdown(){
         this.intervalHandle = setInterval(this.tick,100);
-        let time = this.state.minutes;
-        this.secondsRemaining = time * 60;
+        if(this.state.minutes){
+            let time = parseInt(this.state.minutes);
+            if (parseInt(this.state.seconds)) {
+                this.secondsRemaining = (time * 60) + parseInt(this.state.seconds);
+            }
+            else {
+                this.secondsRemaining = time * 60
+            }
+        }
+        else {
+            this.secondsRemaining = this.state.seconds
+        }
+
         this.setState({
             isClicked: true
         })
@@ -93,7 +127,9 @@ export default class Controller extends Component {
 
     clearValue(){
         this.setState({
-            minutes: ''
+            hours: '',
+            minutes: '',
+            seconds: ''
         })
     }
 
@@ -113,17 +149,40 @@ export default class Controller extends Component {
         if (this.state.isClicked) {
             return(
                 <div>
-                    <Timer minutes={this.state.minutes} seconds={this.state.seconds}/>
+                    <Timer
+                        minutes={this.state.minutes}
+                        seconds={this.state.seconds}
+                        hours={this.state.hours}
+                    />
                 </div>
             )
         }
         else {
             return(
                 <div>
-                    <TimerInput minutes={this.state.minutes} handleChange={this.handleChange}/>
-                    <StartButton startCountdown={this.startCountdown} minutes={this.state.minutes}/>
-                    <ClearButton clearValue={this.clearValue} minutes={this.state.minutes}/>
-                    <AlertDialog open={this.state.alertIsOpen} handleAlertClose={this.handleAlertClose}/>
+                    <TimerInput
+                        minutes={this.state.minutes}
+                        seconds={this.state.seconds}
+                        hours={this.state.hours}
+                        handleChange={this.handleChange}
+                    />
+
+                    <StartButton
+                        startCountdown={this.startCountdown}
+                        minutes={this.state.minutes}
+                        seconds={this.state.seconds}
+                    />
+
+                    <ClearButton
+                        clearValue={this.clearValue}
+                        minutes={this.state.minutes}
+                        seconds={this.state.seconds}
+                    />
+
+                    <AlertDialog
+                        open={this.state.alertIsOpen}
+                        handleAlertClose={this.handleAlertClose}
+                    />
                 </div>
             )
         }
