@@ -35,7 +35,7 @@ export default class Controller extends Component {
         console.log('Event Value:',eventValue);
 
         if(eventId==="minutes"){
-            if ( eventValue<0 || eventValue % 1 !== 0) {
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
                     alertIsOpen: true,
                     alertEventId: eventId
@@ -76,7 +76,7 @@ export default class Controller extends Component {
     }
 
     startCountdown(){
-        this.intervalHandle = setInterval(this.tick,1); //Timeout set to 100 milliseconds for easy testing
+        this.intervalHandle = setInterval(this.tick,100); //Timeout set to 100 milliseconds for easy testing, Default 1000
         if(this.state.hours){
             let time = parseInt(this.state.hours) * 3600;
             if(this.state.minutes){
@@ -88,10 +88,12 @@ export default class Controller extends Component {
                     this.secondsRemaining = time
                 }
             }
-            else{
+            else if (this.state.seconds){
+                this.secondsRemaining = time + parseInt(this.state.seconds);
+            }
+            else {
                 this.secondsRemaining = time
             }
-            console.log('',time);
         }
         else if(this.state.minutes){
             let time = parseInt(this.state.minutes);
@@ -114,7 +116,7 @@ export default class Controller extends Component {
 
     tick(){
         let hrs = Math.floor(this.secondsRemaining / 60 / 60);
-        let min = Math.floor(this.secondsRemaining / 60) - (hrs * 60);
+        let min = Math.floor(this.secondsRemaining / 60) % 60;
         let sec = this.secondsRemaining % 60;
 
         console.log('min:',min);
@@ -129,27 +131,27 @@ export default class Controller extends Component {
             seconds: sec
         });
 
-        // if(this.state.hours){
-        //     if (hrs<10) {
-        //         this.setState({
-        //             minutes: "0" + min
-        //         })
-        //     }
-        // }
-        //
-        // if(this.state.minutes){
-        //     if (min<10) {
-        //         this.setState({
-        //             minutes: "0" + min
-        //         })
-        //     }
-        // }
-        //
-        // if (sec<10) {
-        //     this.setState({
-        //         seconds: "0" + sec
-        //     })
-        // }
+        if(this.state.hours){
+            if (hrs<10) {
+                this.setState({
+                    hours: "0" + hrs
+                })
+            }
+        }
+
+        if(this.state.minutes){
+            if (min<10) {
+                this.setState({
+                    minutes: "0" + min
+                })
+            }
+        }
+
+        if (sec<10) {
+            this.setState({
+                seconds: "0" + sec
+            })
+        }
 
         if (hrs===0 && min===0 && sec===0) {
             clearInterval(this.intervalHandle);
