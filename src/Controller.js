@@ -35,7 +35,7 @@ export default class Controller extends Component {
         console.log('Event Value:',eventValue);
 
         if(eventId==="minutes"){
-            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0 || isNaN(eventValue)) {
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
                     alertIsOpen: true
                 })
@@ -47,7 +47,7 @@ export default class Controller extends Component {
             }
         }
         else if (eventId==="seconds") {
-            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0 || isNaN(eventValue)) {
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
                     alertIsOpen: true
                 })
@@ -59,7 +59,7 @@ export default class Controller extends Component {
             }
         }
         else {
-            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0 || isNaN(eventValue)) {
+            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
                     alertIsOpen: true
                 })
