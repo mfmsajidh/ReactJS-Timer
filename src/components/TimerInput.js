@@ -7,7 +7,7 @@ export default class TimerInput extends Component {
         return (
             <div>
                 <Typography variant="h3" gutterBottom>
-                    Input your desired time
+                    Enter your desired time
                 </Typography>
 
                 <TextField

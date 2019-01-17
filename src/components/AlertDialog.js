@@ -16,10 +16,10 @@ export default class AlertDialog extends React.Component {
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
-                    <DialogTitle id="alert-dialog-title">{"Invalid Input Value"}</DialogTitle>
+                    <DialogTitle id="alert-dialog-title">{"Error"}</DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            Input a valid number between 0 to 59
+                            The value you entered is invalid. Please input a valid number between 0 to 59
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
