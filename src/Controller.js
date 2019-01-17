@@ -15,7 +15,8 @@ export default class Controller extends Component {
             minutes : '',
             seconds : '',
             isClicked : false,
-            alertIsOpen: false
+            alertIsOpen: false,
+            alertEventId: ''
         };
 
         this.handleChange=this.handleChange.bind(this);
@@ -27,7 +28,6 @@ export default class Controller extends Component {
 
     // ------------ Functions for Countdown ------------
     handleChange(event) {
-
         let eventId = event.target.id;
         let eventValue = event.target.value;
 
@@ -37,7 +37,8 @@ export default class Controller extends Component {
         if(eventId==="minutes"){
             if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
-                    alertIsOpen: true
+                    alertIsOpen: true,
+                    alertEventId: eventId
                 })
             }
             else{
@@ -49,7 +50,8 @@ export default class Controller extends Component {
         else if (eventId==="seconds") {
             if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
-                    alertIsOpen: true
+                    alertIsOpen: true,
+                    alertEventId: eventId
                 })
             }
             else{
@@ -59,9 +61,10 @@ export default class Controller extends Component {
             }
         }
         else {
-            if (eventValue>=60 || eventValue<0 || eventValue % 1 !== 0) {
+            if (eventValue<0 || eventValue % 1 !== 0) {
                 this.setState({
-                    alertIsOpen: true
+                    alertIsOpen: true,
+                    alertEventId: eventId
                 })
             }
             else{
@@ -89,7 +92,7 @@ export default class Controller extends Component {
         }
         else if(this.state.minutes){
             let time = parseInt(this.state.minutes);
-            if (parseInt(this.state.seconds)) {
+            if (this.state.seconds) {
                 this.secondsRemaining = (time * 60) + parseInt(this.state.seconds);
             }
             else {
@@ -129,10 +132,10 @@ export default class Controller extends Component {
             }
         }
 
-
         if (min===0 && sec===0) {
             clearInterval(this.intervalHandle);
             this.setState({
+                hours: '',
                 minutes: '',
                 seconds: '',
                 isClicked: false
@@ -195,6 +198,7 @@ export default class Controller extends Component {
 
                     <AlertDialog
                         open={this.state.alertIsOpen}
+                        alertEventId={this.state.alertEventId}
                         handleAlertClose={this.handleAlertClose}
                     />
                 </div>

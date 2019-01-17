@@ -8,6 +8,16 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default class AlertDialog extends React.Component {
     render() {
+
+        let description;
+
+        if(this.props.alertEventId==="hours"){
+            description = "The value you entered is invalid. Please input a positive whole number only"
+        }
+        else{
+            description = ("The value you entered is invalid. Please input a valid whole number between 0 to 59")
+        }
+
         return (
             <div>
                 <Dialog
@@ -19,7 +29,7 @@ export default class AlertDialog extends React.Component {
                     <DialogTitle id="alert-dialog-title">{"Error"}</DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            The value you entered is invalid. Please input a valid number between 0 to 59
+                            {description}
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
