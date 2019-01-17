@@ -74,7 +74,20 @@ export default class Controller extends Component {
 
     startCountdown(){
         this.intervalHandle = setInterval(this.tick,100); //Timeout set to 100 milliseconds for easy testing
-        if(this.state.minutes){
+        if(this.state.hours){
+            let time = parseInt(this.state.hours) * 3600;
+            if(this.state.minutes){
+                time += parseInt(this.state.minutes)*60;
+                if(this.state.seconds){
+                    this.secondsRemaining = time + parseInt(this.state.seconds);
+                }
+                else {
+                    this.secondsRemaining = time
+                }
+            }
+            console.log('',time);
+        }
+        else if(this.state.minutes){
             let time = parseInt(this.state.minutes);
             if (parseInt(this.state.seconds)) {
                 this.secondsRemaining = (time * 60) + parseInt(this.state.seconds);
@@ -102,18 +115,20 @@ export default class Controller extends Component {
             seconds: sec
         });
 
-        // ------------ To be checked later
-        // if (sec<10) {
-        //     this.setState({
-        //         seconds: "0" + this.state.seconds
-        //     })
-        // }
-        //
-        // if (min<10) {
-        //     this.setState({
-        //         minutes: "0" + min
-        //     })
-        // }
+        if (sec<10) {
+            this.setState({
+                seconds: "0" + this.state.seconds
+            })
+        }
+
+        if(this.state.minutes){
+            if (min<10) {
+                this.setState({
+                    minutes: "0" + min
+                })
+            }
+        }
+
 
         if (min===0 && sec===0) {
             clearInterval(this.intervalHandle);
@@ -135,26 +150,21 @@ export default class Controller extends Component {
         })
     }
 
-
     // ------------ Functions for Alert ------------
-
     handleAlertClose () {
         this.setState({
             alertIsOpen: false
         })
     }
 
-
-
     render() {
-
         if (this.state.isClicked) {
             return(
                 <div>
                     <Timer
+                        hours={this.state.hours}
                         minutes={this.state.minutes}
                         seconds={this.state.seconds}
-                        hours={this.state.hours}
                     />
                 </div>
             )
@@ -163,22 +173,24 @@ export default class Controller extends Component {
             return(
                 <div>
                     <TimerInput
+                        hours={this.state.hours}
                         minutes={this.state.minutes}
                         seconds={this.state.seconds}
-                        hours={this.state.hours}
                         handleChange={this.handleChange}
                     />
 
                     <StartButton
-                        startCountdown={this.startCountdown}
+                        hours={this.state.hours}
                         minutes={this.state.minutes}
                         seconds={this.state.seconds}
+                        startCountdown={this.startCountdown}
                     />
 
                     <ClearButton
-                        clearValue={this.clearValue}
+                        hours={this.state.hours}
                         minutes={this.state.minutes}
                         seconds={this.state.seconds}
+                        clearValue={this.clearValue}
                     />
 
                     <AlertDialog

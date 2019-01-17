@@ -7,7 +7,7 @@ export default class ClearButton extends Component {
             <Button
                 variant="outlined"
                 color="secondary"
-                disabled={!this.props.minutes && !this.props.seconds}
+                disabled={!this.props.minutes && !this.props.seconds && !this.props.hours}
                 onClick={this.props.clearValue}
             >Clear</Button>
         )

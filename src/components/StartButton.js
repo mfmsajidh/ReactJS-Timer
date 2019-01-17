@@ -7,7 +7,7 @@ export default class StartButton extends Component {
             <Button
                 variant="outlined"
                 color="primary"
-                disabled={!this.props.minutes && !this.props.seconds}
+                disabled={!this.props.minutes && !this.props.seconds && !this.props.hours}
                 onClick={this.props.startCountdown}
             >Start</Button>
         )
