@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9755b412-13d2-478c-98be-63b6004442ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+            <state relative-caret-position="160">
+              <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -30,20 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Timer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" selection-start-column="3" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/StartButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="89" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="89" />
+            <state relative-caret-position="210">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -89,10 +79,10 @@
         <option value="$PROJECT_DIR$/src/components/SimpleSnackBar.js" />
         <option value="$PROJECT_DIR$/src/components/TimerInput.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/Timer.js" />
         <option value="$PROJECT_DIR$/src/components/StartButton.js" />
         <option value="$PROJECT_DIR$/src/components/ClearButton.js" />
         <option value="$PROJECT_DIR$/src/components/AlertDialog.js" />
+        <option value="$PROJECT_DIR$/src/components/Timer.js" />
         <option value="$PROJECT_DIR$/src/Controller.js" />
       </list>
     </option>
@@ -104,9 +94,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="683" />
+    <option name="x" value="45" />
     <option name="y" value="27" />
-    <option name="width" value="683" />
+    <option name="width" value="631" />
     <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -221,7 +211,7 @@
       <workItem from="1547443822897" duration="3000" />
       <workItem from="1547443830990" duration="12619000" />
       <workItem from="1547612344129" duration="34895000" />
-      <workItem from="1547715402115" duration="1138000" />
+      <workItem from="1547715402115" duration="5505000" />
     </task>
     <task id="LOCAL-00001" summary="Removed unnecessary files from the project">
       <created>1547449900151</created>
@@ -328,22 +318,37 @@
       <option name="project" value="LOCAL" />
       <updated>1547702309941</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Timer Functionality for HOURS (Alpha)">
+      <created>1547716768065</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1547716768065</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Timer Functionality for HOURS (Beta)">
+      <created>1547724674299</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1547724674299</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50076000" />
+    <option name="totallyTimeSpent" value="54443000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="741" extended-state="7" />
+    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6059113" visible="true" weight="0.19880864" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60661155" visible="true" weight="0.19880864" />
       <window_info id="Structure" order="1" sideWeight="0.45619833" side_tool="true" weight="0.19880864" />
-      <window_info active="true" id="npm" order="2" sideWeight="0.39408866" side_tool="true" visible="true" weight="0.19880864" />
+      <window_info id="npm" order="2" sideWeight="0.39338842" side_tool="true" visible="true" weight="0.19880864" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289256" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996277" visible="true" weight="0.3289256" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996277" weight="0.3289256" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -427,7 +432,9 @@
     <MESSAGE value="Removed unnecessary isNan(eventValue) from Controller" />
     <MESSAGE value="Added Timer Functionality for HOURS (Nightly)" />
     <MESSAGE value="Improved Alert Messsages .Timer Functionality for HOURS (Nightly)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved Alert Messsages .Timer Functionality for HOURS (Nightly)" />
+    <MESSAGE value="Timer Functionality for HOURS (Alpha)" />
+    <MESSAGE value="Timer Functionality for HOURS (Beta)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Timer Functionality for HOURS (Beta)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -595,32 +602,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.js">
+    <entry file="file://$PROJECT_DIR$/src/components/StartButton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+        <state relative-caret-position="135">
+          <caret line="9" column="89" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="89" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Timer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        <state relative-caret-position="210">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/StartButton.js">
+    <entry file="file://$PROJECT_DIR$/src/Controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="89" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="89" />
+        <state relative-caret-position="160">
+          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -139,14 +139,6 @@ export default class Controller extends Component {
             }
         }
 
-        if(this.state.minutes){
-            if (min<10) {
-                this.setState({
-                    minutes: "0" + min
-                })
-            }
-        }
-
         if (sec<10) {
             this.setState({
                 seconds: "0" + sec
