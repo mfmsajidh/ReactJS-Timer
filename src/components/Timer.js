@@ -8,7 +8,7 @@ export default class Timer extends Component {
 
         if (this.props.hours) {
             if (this.props.minutes<10) {
-                timer =  (this.props.hours + " : " + "0" + this.props.minutes + " : " + this.props.seconds)
+                timer =  (this.props.hours + " : 0" + this.props.minutes + " : " + this.props.seconds)
             }
             else {
                 timer =  (this.props.hours + " : " + this.props.minutes + " : " + this.props.seconds)
